@@ -1,0 +1,15 @@
+services:
+  selenium_test1:
+    image: pramesh11/selenium-docker-framework
+    environment:
+    - BROWSER=chrome
+    - HUB_HOST=hub
+    volumes:
+    - C:/Users/prame/Docker_VolumeMap_August2025/05-RunFramework_withDocker/03-Scale-Browsers/output/test_results1:/home/MyProject/test-output
+  selenium_test2:
+    image: pramesh11/selenium-docker-framework
+    environment:
+    - BROWSER=firefox
+    - HUB_HOST=hub
+    volumes:
+    - C:/Users/prame/Docker_VolumeMap_August2025/05-RunFramework_withDocker/03-Scale-Browsers/output/test_results2:/home/MyProject/test-output
