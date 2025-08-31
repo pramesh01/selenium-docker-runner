@@ -1,0 +1,43 @@
+services:
+  hub:
+    image: selenium/hub:4.14
+  chrome:
+    image: selenium/node-chromium:126.0
+    shm_size: '2g'
+    depends_on:
+    - hub
+    environment:
+    - SE_EVENT_BUS_HOST=hub
+    - SE_EVENT_BUS_PUBLISH_PORT=4442
+    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    - SE_NODE_MAX_SESSIONS=4
+  firefox:
+    image: selenium/node-firefox:126.0
+    shm_size: '2g'
+    depends_on:
+    - hub
+    environment:
+    - SE_EVENT_BUS_HOST=hub
+    - SE_EVENT_BUS_PUBLISH_PORT=4442
+    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443  
+    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    - SE_NODE_MAX_SESSIONS=4
+  selenium_test1:
+    image: pramesh11/selenium-docker-framework
+    depends_on:
+    - chrome
+    environment:
+    - BROWSER=chrome
+    - HUB_HOST=hub
+    volumes:
+    - C:/Users/prame/Docker_VolumeMap_August2025/06-Jenkins-CI_CD-Pipeline/06-runner-approach1/output/test_results1:/home/MyProject/test-output
+  selenium_test2:
+    image: pramesh11/selenium-docker-framework
+    depends_on:
+    - firefox
+    environment:
+    - BROWSER=firefox
+    - HUB_HOST=hub
+    volumes:
+    - C:\Users/prame/Docker_VolumeMap_August2025/06-Jenkins-CI_CD-Pipeline/06-runner-approach1/output/test_results2:/home/MyProject/test-output
