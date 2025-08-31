@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Running Tests'){
             steps{
-                bat "docker-compose -f test_suite.yaml up"
+                bat "docker-compose -f test_suite.yaml up --pull=always"
                 script{
                     if(fileExists("output/test_results1/testng-failed.xml") || fileExists("output/test_results1/testng-failed.xml")){
                         error("Failed test case found..So failing Entire build..")
