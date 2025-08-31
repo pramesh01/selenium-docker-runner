@@ -19,6 +19,8 @@ pipeline{
     }
     post{
         always{
+            archiveArtifacts artifacts: "output/test_results1/**", followSymlinks: false
+            archiveArtifacts artifacts: "output/test_results2/**", followSymlinks: false
             bat "docker-compose -f grid.yaml down"
             bat "docker-compose -f test_suite.yaml down"
     }
