@@ -53,11 +53,13 @@ docker-compose -f test_suites.yaml up --pull=always
 docker-compose -f test_suites.yaml down
 docker-compose -f grid.yaml down
 
-📊 Test Reports
-Reports are generated inside the output/ directory:-
-- output/test_results1 → Chrome execution results
-- output/test_results2 → Firefox execution results
+📊 **Test Reports**
 
-👨‍💻 Author: Pramesh Kumar
+ Reports are generated inside the output/ directory:-
+
+  - output/test_results1 → Chrome execution results
+  - output/test_results2 → Firefox execution results
+
+👨‍💻 **Author: Pramesh Kumar**
 
 Thanks!
