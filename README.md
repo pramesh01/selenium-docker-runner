@@ -4,12 +4,10 @@ This repository contains the **runner setup** to execute the Selenium Automation
 It provisions a Selenium Grid, pulls the prebuilt Docker image from DockerHub, runs tests in parallel on multiple browsers, collects reports, and then tears down the environment automatically.
 
 ---
-
 ## 📂 Repository Contents
 - **Jenkinsfile** → Pipeline to orchestrate test execution (Grid up → Run tests → Cleanup).  
 - **grid.yaml** → Spins up Selenium Grid (Hub + Chrome + Firefox nodes).  
 - **test_suites.yaml** → Runs test containers against the Grid in parallel.  
-
 ---
 
 ## ⚙️ Workflow
@@ -34,7 +32,6 @@ This pipeline must run **first**, so that the latest Docker image is available o
 - **Teardown** → All containers are stopped and cleaned automatically.  
 
 ---
-
 ## ▶️ Usage
 
 ### Run with Jenkins
@@ -55,12 +52,11 @@ docker-compose -f test_suites.yaml up --pull=always
 # Stop and clean everything
 docker-compose -f test_suites.yaml down
 docker-compose -f grid.yaml down
+
 📊 Test Reports
-Reports are generated inside the output/ directory:
-
-output/test_results1 → Chrome execution results
-
-output/test_results2 → Firefox execution results
+Reports are generated inside the output/ directory:-
+- output/test_results1 → Chrome execution results
+- output/test_results2 → Firefox execution results
 
 👨‍💻 Author: Pramesh Kumar
 
