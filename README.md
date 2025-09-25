@@ -42,7 +42,7 @@ This pipeline must run **first**, so that the latest Docker image is available o
 - Run the **Builder Job first**, then the **Runner Job**.  
 
 ### Run Manually (Docker Compose)
-```bash
+```
 # Start Selenium Grid
 docker-compose -f grid.yaml up -d
 
@@ -52,14 +52,15 @@ docker-compose -f test_suites.yaml up --pull=always
 # Stop and clean everything
 docker-compose -f test_suites.yaml down
 docker-compose -f grid.yaml down
+```
 
-## 📊 **Test Reports**
+ 📊 **Test Reports**
 
  Reports are generated inside the output/ directory:-
 
   - output/test_results1 → Chrome execution results
   - output/test_results2 → Firefox execution results
 
-## 👨‍💻 **Author: Pramesh Kumar**
+ 👨‍💻 Author: **Pramesh Kumar**
 
 Thanks!
